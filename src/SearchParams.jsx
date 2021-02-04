@@ -40,6 +40,7 @@ const SearchParams = () => {
                       id="id"
                       value={id}
                       placeholder="Id"
+                      type="number"
                       onChange={(e) => updateId(e.target.value)}
                     />
                   </label>
