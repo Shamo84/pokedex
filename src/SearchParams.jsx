@@ -24,30 +24,7 @@ const SearchParams = () => {
       console.log(error);
     }, console.error);
   }, [id, updateName, updateId, updateImg]);
-  if (!id) {
-    return (
-      <Container>
-          <Row>
-            <Col size="12">
-              <div className="search-params">
-                <form>
-                  <label htmlFor="id">
-                    Id:<br/>
-                    <input
-                      id="id"
-                      value={id}
-                      placeholder="Id"
-                      type="number"
-                      onChange={(e) => updateId(e.target.value)}
-                    />
-                  </label>
-                </form>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      );
-  } else {
+
   return (
     <Container>
       <Row>
@@ -64,12 +41,14 @@ const SearchParams = () => {
                 />
               </label>
               <Card>
+              { name ?
                 <Card.Body>
                   <Card.Text>
                     nome: {name}
                   </Card.Text>
                 </Card.Body>
-                <Card.Img variant="bottom" src={img} alt="image not found"/>
+              : ""}
+              { img ? <Card.Img variant="bottom" src={img} alt="image not found"/> : "" }
               </Card>
             </form>
           </div>
@@ -77,7 +56,6 @@ const SearchParams = () => {
       </Row>
     </Container>
   );
-  }
 };
 
 export default SearchParams;
